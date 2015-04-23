@@ -256,7 +256,7 @@ public class SimpleDynamoProvider extends ContentProvider {
             }
         } else {
             Log.d(TAG, "not correctNode");
-            
+
             DHTMessage insertDhtMessage = new DHTMessage();
             insertDhtMessage.msgType = DHTMessage.MsgType.INSERT;
             insertDhtMessage.from_port = myPort;

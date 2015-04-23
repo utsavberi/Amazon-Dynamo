@@ -17,15 +17,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: edu.buffalo.cse.cse486586.simpledynamo" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00c445ae-068d-4f92-849a-82c0d0b1179f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleDynamo.iml" afterPath="$PROJECT_DIR$/SimpleDynamo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java" />
+    <list default="true" id="00c445ae-068d-4f92-849a-82c0d0b1179f" name="Default" comment="Initial Commit - Phase 1 passed">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SimpleDynamo.iws" />
@@ -52,25 +45,16 @@
       <file leaf-file-name="SimpleDynamoProvider.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6" vertical-offset="2217" max-vertical-offset="4995">
-              <caret line="259" column="12" selection-start-line="259" selection-start-column="12" selection-end-line="259" selection-end-column="12" />
+            <state vertical-scroll-proportion="6.303371" vertical-offset="2187" max-vertical-offset="8490">
+              <caret line="258" column="0" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-                <element signature="method#isCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="class#9402:9537" expanded="false" />
-                <element signature="initializer##0;class#9402:9537" expanded="false" />
-                <element signature="e#11169#11170#0" expanded="true" />
-                <element signature="e#11197#11198#0" expanded="true" />
-                <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#doInBackground#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+                <element signature="e#1176#1177#0" expanded="true" />
+                <element signature="e#1228#1229#0" expanded="true" />
+                <element signature="e#10967#10968#0" expanded="true" />
+                <element signature="e#10996#10997#0" expanded="true" />
+                <element signature="e#16724#16725#0" expanded="true" />
+                <element signature="e#16748#16749#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,7 +65,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="510">
               <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,6 +98,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="true" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="tasksExpandState">
@@ -1070,11 +1059,16 @@
       <created>1428549923392</created>
       <updated>1428549923392</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit - Phase 1 passed">
+      <created>1429771089411</created>
+      <updated>1429771089411</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="-14" width="1345" height="792" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1151,6 +1145,10 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Initial Commit - Phase 1 passed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit - Phase 1 passed" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1162,21 +1160,12 @@
           <caret line="489" column="36" selection-start-line="489" selection-start-column="36" selection-end-line="489" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="method#isCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#9402:9537" expanded="false" />
-            <element signature="initializer##0;class#9402:9537" expanded="false" />
-            <element signature="e#11169#11170#0" expanded="true" />
-            <element signature="e#11197#11198#0" expanded="true" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#10967#10968#0" expanded="true" />
+            <element signature="e#10996#10997#0" expanded="true" />
+            <element signature="e#16724#16725#0" expanded="true" />
+            <element signature="e#16748#16749#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1203,21 +1192,12 @@
           <caret line="242" column="19" selection-start-line="242" selection-start-column="19" selection-end-line="242" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="method#isCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#9402:9537" expanded="false" />
-            <element signature="initializer##0;class#9402:9537" expanded="false" />
-            <element signature="e#11169#11170#0" expanded="true" />
-            <element signature="e#11197#11198#0" expanded="true" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#10967#10968#0" expanded="true" />
+            <element signature="e#10996#10997#0" expanded="true" />
+            <element signature="e#16724#16725#0" expanded="true" />
+            <element signature="e#16748#16749#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1259,21 +1239,12 @@
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="method#isCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#9402:9537" expanded="false" />
-            <element signature="initializer##0;class#9402:9537" expanded="false" />
-            <element signature="e#11169#11170#0" expanded="true" />
-            <element signature="e#11197#11198#0" expanded="true" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#10967#10968#0" expanded="true" />
+            <element signature="e#10996#10997#0" expanded="true" />
+            <element signature="e#16724#16725#0" expanded="true" />
+            <element signature="e#16748#16749#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1299,21 +1270,12 @@
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="method#isCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#9402:9537" expanded="false" />
-            <element signature="initializer##0;class#9402:9537" expanded="false" />
-            <element signature="e#11169#11170#0" expanded="true" />
-            <element signature="e#11197#11198#0" expanded="true" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#10967#10968#0" expanded="true" />
+            <element signature="e#10996#10997#0" expanded="true" />
+            <element signature="e#16724#16725#0" expanded="true" />
+            <element signature="e#16748#16749#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1403,31 +1365,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="510">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6" vertical-offset="2217" max-vertical-offset="4995">
-          <caret line="259" column="12" selection-start-line="259" selection-start-column="12" selection-end-line="259" selection-end-column="12" />
+        <state vertical-scroll-proportion="6.303371" vertical-offset="2187" max-vertical-offset="8490">
+          <caret line="258" column="0" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="method#isCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#9402:9537" expanded="false" />
-            <element signature="initializer##0;class#9402:9537" expanded="false" />
-            <element signature="e#11169#11170#0" expanded="true" />
-            <element signature="e#11197#11198#0" expanded="true" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#doInBackground#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#10967#10968#0" expanded="true" />
+            <element signature="e#10996#10997#0" expanded="true" />
+            <element signature="e#16724#16725#0" expanded="true" />
+            <element signature="e#16748#16749#0" expanded="true" />
           </folding>
         </state>
       </provider>
