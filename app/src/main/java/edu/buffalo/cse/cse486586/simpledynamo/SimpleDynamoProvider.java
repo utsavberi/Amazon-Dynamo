@@ -74,16 +74,26 @@ public class SimpleDynamoProvider extends ContentProvider {
     }
 
     private boolean isCorrectNode(String key) {
-        Log.d(TAG, "checking for correct node");
-        Log.d(TAG, successor_port + " " + predecessor_port + " " + myPort);
+
+        Log.d(TAG, successor_port + " " + predecessor_port + " myport:" + myPort);
+
         if (successor_port.isEmpty() || (predecessor_port.equals(myPort))) {
             Log.d(TAG, "successor is empty or pred == myport returning true");
             return true;
         }
+        return isCorrectNode(key, myPort);
+//        return false;
+    }
+
+    private boolean isCorrectNode(String key, String node) {
+        Log.d(TAG, "checking for correct node");
+        String pred_port = joinedNodes.get(node).predecessor;
+        Log.d(TAG, successor_port + " " + pred_port + " " + node);
+
         try {
             String id = MyUtils.genHash(key),
-                    pred_id = MyUtils.genHash(MyUtils.getNodeIdFromPort(predecessor_port)),
-                    my_id = MyUtils.genHash(MyUtils.getNodeIdFromPort(myPort));
+                    pred_id = MyUtils.genHash(MyUtils.getNodeIdFromPort(pred_port)),
+                    my_id = MyUtils.genHash(MyUtils.getNodeIdFromPort(node));
             if ((id.compareTo(pred_id) > 0 && id.compareTo(my_id) <= 0) ||
                     ((my_id.compareTo(pred_id) < 0) && id.compareTo(pred_id) > 0)
                     || ((my_id.compareTo(pred_id) < 0) && id.compareTo(my_id) < 0)) {
@@ -123,10 +133,12 @@ public class SimpleDynamoProvider extends ContentProvider {
                 getContext().deleteFile(selection);
                 sendDeleteReplicaMsg(selection);
             } else {
+                String correctNode = findCorrectNode(selection);
                 Log.d(TAG, "sending to successor");
                 DHTMessage queryMsg = new DHTMessage();
                 queryMsg.msg = selection;
                 queryMsg.msgType = DHTMessage.MsgType.DELETE;
+                sendMesage(queryMsg, correctNode);
             }
         }
         return 0;
@@ -256,14 +268,27 @@ public class SimpleDynamoProvider extends ContentProvider {
             }
         } else {
             Log.d(TAG, "not correctNode");
-
+            String correctNode = findCorrectNode(key);
             DHTMessage insertDhtMessage = new DHTMessage();
             insertDhtMessage.msgType = DHTMessage.MsgType.INSERT;
             insertDhtMessage.from_port = myPort;
             insertDhtMessage.cv_msg = MyUtils.cvtoString(values);
-            sendMesage(insertDhtMessage, successor_port);
+//            sendMesage(insertDhtMessage, successor_port);
+            sendMesage(insertDhtMessage, correctNode);
+
         }
         return uri;
+    }
+
+    private String findCorrectNode(String key) {
+        for (String node : joinedNodes.keySet()) {
+            if (isCorrectNode(key, node)) {
+                log("found correct node " + node);
+                return node;
+            }
+        }
+        log("could not find correct node");
+        return null;
     }
 
     void log(String m) {
@@ -378,7 +403,7 @@ public class SimpleDynamoProvider extends ContentProvider {
         }
         //selection !=@ && != *
         else {
-            if (isCorrectNode(selection) || successor_port.isEmpty() || (predecessor_port.equals(myPort))) {
+            if (isCorrectNode(selection)) {
                 Log.d(TAG, "correct node");
                 try {
                     cur.addRow(new Object[]{selection, MyUtils.readFile(getContext().openFileInput(selection))});
@@ -388,11 +413,14 @@ public class SimpleDynamoProvider extends ContentProvider {
                 return cur;
             } else {
                 Log.d(TAG, "sending to successor");
-                String remotePort = successor_port;
+                String correctNode = findCorrectNode(selection);
+//                String remotePort = successor_port;
                 DHTMessage queryMsg = new DHTMessage();
                 queryMsg.msg = selection;
                 queryMsg.msgType = DHTMessage.MsgType.QUERY;
-                MyUtils.convertAndAppendToCur(cur, queryAndWaitForReply(remotePort, queryMsg));
+//                MyUtils.convertAndAppendToCur(cur, queryAndWaitForReply(remotePort, queryMsg));
+                MyUtils.convertAndAppendToCur(cur, queryAndWaitForReply(correctNode, queryMsg));
+
                 return cur;
 
             }
