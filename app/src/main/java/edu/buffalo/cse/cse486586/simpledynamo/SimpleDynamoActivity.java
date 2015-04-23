@@ -1,7 +1,7 @@
 package edu.buffalo.cse.cse486586.simpledynamo;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
@@ -26,7 +26,8 @@ public class SimpleDynamoActivity extends Activity {
 	}
 	
 	public void onStop() {
-	    Log.v("Test", "onStop()");
+        super.onStop();
+        Log.v("Test", "onStop()");
 	}
 
 }
