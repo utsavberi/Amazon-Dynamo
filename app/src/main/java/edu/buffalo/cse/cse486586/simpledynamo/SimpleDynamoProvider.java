@@ -133,7 +133,7 @@ public class SimpleDynamoProvider extends ContentProvider {
     }
 
     private void sendDeleteReplicaMsg(String fileName) {
-        Log.d(TAG, "send delet replicate msg:" + fileName);
+        Log.d(TAG, "send delete replicate msg:" + fileName);
         String rep1 = joinedNodes.get(myPort).successor;
         log("rep1" + rep1);
         log("joined nodes" + joinedNodes);
