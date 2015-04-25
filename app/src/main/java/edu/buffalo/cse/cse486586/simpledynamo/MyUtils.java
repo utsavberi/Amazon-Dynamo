@@ -76,10 +76,19 @@ public class MyUtils {
         if (s.trim().isEmpty()) return;
         String[] rows = s.split("\\|");
         for (String row : rows) {
+            if (row.trim().isEmpty()) continue;
             String[] keyValue = row.split(",");
             cur.addRow(new Object[]{keyValue[0], keyValue[1]});
         }
 
+    }
+
+    public static void appendCurToCur(MatrixCursor cur, MatrixCursor s) {
+        s.moveToFirst();
+        while (!s.isAfterLast()) {
+            cur.addRow(new Object[]{s.getString(0), s.getString(1)});
+            s.moveToNext();
+        }
     }
 
     public static String cvtoString(ContentValues values) {

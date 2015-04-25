@@ -53,8 +53,8 @@ public class SimpleDynamoProvider extends ContentProvider {
     static final String TAG = SimpleDynamoProvider.class.getSimpleName();
 
     static final int SERVER_PORT = 10000;
-    public String predecessor_port = "";
-    public String successor_port = "";
+    //    public String predecessor_port = "";
+//    public String successor_port = "";
     String myPort;
     static final String REMOTE_PORT0 = "11108";
     static final String REMOTE_PORT1 = "11112";
@@ -75,9 +75,10 @@ public class SimpleDynamoProvider extends ContentProvider {
 
     private boolean isCorrectNode(String key) {
 
-        Log.d(TAG, successor_port + " " + predecessor_port + " myport:" + myPort);
+//        Log.d(TAG, successor_port + " " + predecessor_port + " myport:" + myPort);
 
-        if (successor_port.isEmpty() || (predecessor_port.equals(myPort))) {
+//        if (successor_port.isEmpty() || (predecessor_port.equals(myPort))) {
+        if (joinedNodes.size() == 1) {
             Log.d(TAG, "successor is empty or pred == myport returning true");
             return true;
         }
@@ -88,7 +89,7 @@ public class SimpleDynamoProvider extends ContentProvider {
     private boolean isCorrectNode(String key, String node) {
         Log.d(TAG, "checking for correct node");
         String pred_port = joinedNodes.get(node).predecessor;
-        Log.d(TAG, successor_port + " " + pred_port + " " + node);
+//        Log.d(TAG, successor_port + " " + pred_port + " " + node);
 
         try {
             String id = MyUtils.genHash(key),
@@ -108,9 +109,11 @@ public class SimpleDynamoProvider extends ContentProvider {
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!trying to delete" + myPort + ":" + selection);
-        Log.d(TAG, selection + " " + successor_port + " " + predecessor_port + " " + myPort);
-        if (selection.equals("\"@\"") || (selection.equals("\"*\"") &&
-                (successor_port.isEmpty() || (predecessor_port.equals(myPort))))) {
+//        Log.d(TAG, selection + " " + successor_port + " " + predecessor_port + " " + myPort);
+        if (selection.equals("\"@\""))
+//        || (selection.equals("\"*\"") &&
+//                (successor_port.isEmpty() || (predecessor_port.equals(myPort)))))
+        {
             Log.d(TAG, "in @ query");
             for (File file : getContext().getFilesDir().listFiles()) {
                 getContext().deleteFile(file.getName());
@@ -125,6 +128,7 @@ public class SimpleDynamoProvider extends ContentProvider {
             DHTMessage dhtmsg = new DHTMessage();
             dhtmsg.from_port = myPort;
             dhtmsg.msgType = DHTMessage.MsgType.DELETE_ALL;
+            broadcastDeleteAll();
         }
         //selection !=@ && != *
         else {
@@ -142,6 +146,19 @@ public class SimpleDynamoProvider extends ContentProvider {
             }
         }
         return 0;
+    }
+
+    private void broadcastDeleteAll() {
+        if (joinedNodes.size() > 1) {
+            for (String node : joinedNodes.keySet()) {
+                if (!node.equals(myPort)) {
+                    DHTMessage msg = new DHTMessage();
+                    msg.msgType = DHTMessage.MsgType.DELETE;
+                    msg.msg = "\"@\"";
+                    sendMesage(msg, node);
+                }
+            }
+        }
     }
 
     private void sendDeleteReplicaMsg(String fileName) {
@@ -184,11 +201,12 @@ public class SimpleDynamoProvider extends ContentProvider {
             e.printStackTrace();
         }
         String joinReq_from_port = join_dhtMessage.from_port;
+//        if(joinedNodes.containsKey(joinReq_from_port)==true)
         try {
             if (joinedNodes.size() == 1) {
                 Log.d(TAG, "in joined node size 1");
-                predecessor_port = joinReq_from_port;
-                successor_port = joinReq_from_port;
+//                predecessor_port = joinReq_from_port;
+//                successor_port = joinReq_from_port;
                 joinedNodes.put(REMOTE_PORT0, new NodePair(joinReq_from_port, joinReq_from_port));
                 updatePredSucc(REMOTE_PORT0, joinReq_from_port, DHTMessage.MsgType.SET_SUCCESSOR);
                 updatePredSucc(REMOTE_PORT0, joinReq_from_port, DHTMessage.MsgType.SET_PREDECESSOR);
@@ -253,7 +271,7 @@ public class SimpleDynamoProvider extends ContentProvider {
         Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!trying to insert" + myPort);
         String key = values.getAsString("key");
         String value = values.getAsString("value");
-        Log.d(TAG, "succc:" + successor_port);
+//        Log.d(TAG, "succc:" + successor_port);
         if (isCorrectNode(key)) {
             Log.d(TAG, "CorrectNode");
             FileOutputStream outputStream;
@@ -291,7 +309,7 @@ public class SimpleDynamoProvider extends ContentProvider {
         return null;
     }
 
-    void log(String m) {
+    static void log(String m) {
         Log.d(TAG, m);
     }
 
@@ -343,23 +361,34 @@ public class SimpleDynamoProvider extends ContentProvider {
         String portStr = tel.getLine1Number().substring(tel.getLine1Number().length() - 4);
         myPort = String.valueOf((Integer.parseInt(portStr) * 2));
 
-        if (myPort.equals(remotePorts[0])) {
-            successor_port = REMOTE_PORT0;
-            predecessor_port = REMOTE_PORT0;
-            joinedNodes.put(REMOTE_PORT0, new NodePair(REMOTE_PORT0, REMOTE_PORT0));
-        }
+        joinedNodes.put("11108", new NodePair("11112", "11116"));
+        joinedNodes.put("11120", new NodePair("11116", "11124"));
+        joinedNodes.put("11112", new NodePair("11124", "11108"));
+        joinedNodes.put("11116", new NodePair("11108", "11120"));
+        joinedNodes.put("11124", new NodePair("11120", "11112"));
+        //11108=11112:11116,
+        // 11120=11116:11124,
+        // 11112=11124:11108,
+        // 11116=11108:11120,
+        // 11124=11120:11112
+//        if (myPort.equals(remotePorts[0])) {
+//            successor_port = REMOTE_PORT0;
+//            predecessor_port = REMOTE_PORT0;
+//            joinedNodes.put(REMOTE_PORT0, new NodePair(REMOTE_PORT0, REMOTE_PORT0));
+//
+//        }
         try {
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
             new ServerTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, serverSocket);
         } catch (IOException e) {
             Log.e(TAG, "Can't create a ServerSocket " + e.getLocalizedMessage());
         }
-        if (!myPort.equals(REMOTE_PORT0)) {
-            DHTMessage joinMessage = new DHTMessage();
-            joinMessage.from_port = myPort;
-            joinMessage.msgType = DHTMessage.MsgType.JOIN;
-            sendMesage(joinMessage, REMOTE_PORT0);
-        }
+//        if (!myPort.equals(REMOTE_PORT0)) {
+//            DHTMessage joinMessage = new DHTMessage();
+//            joinMessage.from_port = myPort;
+//            joinMessage.msgType = DHTMessage.MsgType.JOIN;
+//            sendMesage(joinMessage, REMOTE_PORT0);
+//        }
         return false;
     }
 
@@ -370,9 +399,11 @@ public class SimpleDynamoProvider extends ContentProvider {
         MatrixCursor cur;
         cur = new MatrixCursor(new String[]{"key", "value"});
         Log.d(TAG, "started querying");
-        Log.d(TAG, selection + " " + successor_port + " " + predecessor_port + " " + myPort);
-        if (selection.equals("\"@\"") || (selection.equals("\"*\"") &&
-                (successor_port.isEmpty() || (predecessor_port.equals(myPort))))) {
+//        Log.d(TAG, selection + " " + successor_port + " " + predecessor_port + " " + myPort);
+        if (selection.equals("\"@\""))
+//        || (selection.equals("\"*\"") &&
+//                (successor_port.isEmpty() || (predecessor_port.equals(myPort)))))
+        {
             Log.d(TAG, "in @ query");
             for (File file : getContext().getFilesDir().listFiles()) {
                 try {
@@ -385,7 +416,7 @@ public class SimpleDynamoProvider extends ContentProvider {
             return cur;
         } else if (selection.equals("\"*\"")) {
             Log.d(TAG, "in * query");
-            String remotePort = successor_port;
+//            String remotePort = successor_port;
             for (File file : getContext().getFilesDir().listFiles()) {
                 try {
                     cur.addRow(new Object[]{file.getName(), MyUtils.readFile(getContext().openFileInput(file.getName()))});
@@ -393,12 +424,20 @@ public class SimpleDynamoProvider extends ContentProvider {
                     e.printStackTrace();
                 }
             }
-            DHTMessage dhtmsg = new DHTMessage();
-            dhtmsg.from_port = myPort;
-            dhtmsg.msgType = DHTMessage.MsgType.QUERY_ALL;
-            MyUtils.convertAndAppendToCur(cur, queryAndWaitForReply(remotePort, dhtmsg));
-            Log.d(TAG, "received cursor");
-            Log.d(TAG, MyUtils.cursorToString(cur));
+            MyUtils.appendCurToCur(cur, queryAllBroadcast());
+//            DHTMessage dhtmsg = new DHTMessage();
+//            dhtmsg.from_port = myPort;
+//            dhtmsg.msgType = DHTMessage.MsgType.QUERY_ALL;
+//            MyUtils.convertAndAppendToCur(cur, queryAndWaitForReply(remotePort, dhtmsg));
+//            Log.d(TAG, "received cursor");
+//            Log.d(TAG, MyUtils.cursorToString(cur));
+            log("lololo");
+            cur.moveToFirst();
+            while (!cur.isAfterLast()) {
+                log(cur.getString(0) + ">>" + cur.getString(1));
+                cur.moveToNext();
+
+            }
             return cur;
         }
         //selection !=@ && != *
@@ -414,18 +453,73 @@ public class SimpleDynamoProvider extends ContentProvider {
             } else {
                 Log.d(TAG, "sending to successor");
                 String correctNode = findCorrectNode(selection);
-//                String remotePort = successor_port;
                 DHTMessage queryMsg = new DHTMessage();
                 queryMsg.msg = selection;
                 queryMsg.msgType = DHTMessage.MsgType.QUERY;
-//                MyUtils.convertAndAppendToCur(cur, queryAndWaitForReply(remotePort, queryMsg));
                 MyUtils.convertAndAppendToCur(cur, queryAndWaitForReply(correctNode, queryMsg));
-
                 return cur;
 
             }
 
         }
+    }
+
+    private MatrixCursor queryAllBroadcast() {
+        MatrixCursor cur = new MatrixCursor(new String[]{"key", "value"});
+        if (joinedNodes.size() > 1) {
+            for (String node : joinedNodes.keySet()) {
+                if (node.equals(myPort)) continue;
+                DHTMessage msg = new DHTMessage();
+                msg.msgType = DHTMessage.MsgType.QUERY;
+                msg.msg = "\"@\"";
+                msg.send_to = node;
+                MyUtils.convertAndAppendToCur(cur, sendAndWaitforReply(msg));
+//                try {
+//                    Socket socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
+//                            Integer.parseInt(node));
+//                    ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
+//                    BufferedReader in =
+//                            new BufferedReader(
+//                                    new InputStreamReader(socket.getInputStream()));
+//                    DHTMessage msg = new DHTMessage();
+//                    msg.msgType = DHTMessage.MsgType.QUERY;
+//                    msg.msg = "\"@\"";
+//                    os.writeObject(msg);
+//                    String reply =in.readLine();
+//                    MyUtils.convertAndAppendToCur(cur,reply);
+//                    socket.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+
+            }
+        }
+        return cur;
+    }
+
+    static String sendAndWaitforReply(DHTMessage msg) {
+        String reply = null;
+        try {
+            Socket socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
+                    Integer.parseInt(msg.send_to));
+            ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
+            BufferedReader in =
+                    new BufferedReader(
+                            new InputStreamReader(socket.getInputStream()));
+//            DHTMessage msg = new DHTMessage();
+//            msg.msgType = DHTMessage.MsgType.QUERY;
+//            msg.msg = "\"@\"";
+            os.writeObject(msg);
+            reply = in.readLine();
+            log("got reply from " + msg.send_to);
+            log(reply);
+//            MyUtils.convertAndAppendToCur(cur,reply);
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return reply;
+
     }
 
     @Override
@@ -457,8 +551,9 @@ public class SimpleDynamoProvider extends ContentProvider {
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                     Log.e(TAG, e.getLocalizedMessage());
+                    log("msg failed to send.. i give up..");
                 }
-                Log.e(TAG, "msg resent");
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -490,12 +585,12 @@ public class SimpleDynamoProvider extends ContentProvider {
                                     Log.d(TAG, "joined node update" + dhtMessage.msg);
                                     upateJoinedNodes((dhtMessage.msg));
                                     break;
-                                case SET_PREDECESSOR:
-                                    predecessor_port = dhtMessage.from_port;
-                                    break;
-                                case SET_SUCCESSOR:
-                                    successor_port = dhtMessage.from_port;
-                                    break;
+//                                case SET_PREDECESSOR:
+//                                    predecessor_port = dhtMessage.from_port;
+//                                    break;
+//                                case SET_SUCCESSOR:
+//                                    successor_port = dhtMessage.from_port;
+//                                    break;
                                 case INSERT:
                                     ContentValues values = MyUtils.stringToCv(dhtMessage.cv_msg);
                                     String key = values.getAsString("key");
@@ -513,26 +608,26 @@ public class SimpleDynamoProvider extends ContentProvider {
                                     out.println(repQuery);
                                     Log.d(TAG, "reply done ");
                                     break;
-                                case QUERY_ALL:
-                                    String curr = MyUtils.cursorToString(query(null, null, "\"@\"", null, null));
-                                    if (!dhtMessage.from_port.equals(successor_port)) {
-                                        curr += queryAndWaitForReply(successor_port, dhtMessage);
-                                    } else {
-                                        Log.d(TAG, "reached lastnode");
-                                    }
-                                    out.println(curr);
-                                    break;
+//                                case QUERY_ALL:
+//                                    String curr = MyUtils.cursorToString(query(null, null, "\"@\"", null, null));
+//                                    if (!dhtMessage.from_port.equals(successor_port)) {
+//                                        curr += queryAndWaitForReply(successor_port, dhtMessage);
+//                                    } else {
+//                                        Log.d(TAG, "reached lastnode");
+//                                    }
+//                                    out.println(curr);
+//                                    break;
                                 case DELETE:
                                     delete(null, dhtMessage.msg, null);
                                     break;
-                                case DELETE_ALL:
-                                    delete(null, "\"@\"", null);
-                                    if (!dhtMessage.from_port.equals(successor_port)) {
-                                        sendMesage(dhtMessage, successor_port);
-                                    } else {
-                                        Log.d(TAG, "reached lastnode");
-                                    }
-                                    break;
+//                                case DELETE_ALL:
+//                                    delete(null, "\"@\"", null);
+//                                    if (!dhtMessage.from_port.equals(successor_port)) {
+//                                        sendMesage(dhtMessage, successor_port);
+//                                    } else {
+//                                        Log.d(TAG, "reached lastnode");
+//                                    }
+//                                    break;
                                 case REPLICATE:
                                     ContentValues values2 = MyUtils.stringToCv(dhtMessage.msg);
                                     String key1 = values2.getAsString("key");
