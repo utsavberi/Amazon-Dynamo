@@ -7,6 +7,7 @@ import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.MessageDigest;
@@ -37,6 +38,7 @@ public class MyUtils {
     }
 
     public static ContentValues stringToCv(String cv_msg) {
+        Log.d(TAG, "stringtocv" + cv_msg);
         ContentValues cv = new ContentValues();
         if (cv_msg.trim().isEmpty()) return cv;
         cv.put("key", cv_msg.split(",")[0]);
@@ -72,8 +74,20 @@ public class MyUtils {
         return tmp;
     }
 
+    public static void writeToFile(FileOutputStream key, String value) {
+        FileOutputStream outputStream;
+        try {
+            outputStream = key;//getContext().openFileOutput(key, Context.MODE_PRIVATE);
+            outputStream.write(value.getBytes());
+            outputStream.close();
+//            sendReplicateMsg(MyUtils.cvtoString(values),myPort);
+        } catch (Exception e) {
+            Log.e(TAG, "File write failed" + e.getLocalizedMessage());
+            e.printStackTrace();
+        }
+    }
     public static void convertAndAppendToCur(MatrixCursor cur, String s) {
-        if (s.trim().isEmpty()) return;
+        if (s == null || s.trim().isEmpty()) return;
         String[] rows = s.split("\\|");
         for (String row : rows) {
             if (row.trim().isEmpty()) continue;

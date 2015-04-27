@@ -14,17 +14,17 @@ public class DHTMessage implements Serializable {
     }
 
     int visit0count;
-    public String cv_msg;
+    //    public String cv_msg;
     public String msg;
     public Cursor cur_msg;
 
     public enum MsgType {
-        SET_PREDECESSOR, SET_SUCCESSOR, INSERT, QUERY, QUERY_ALL, DELETE, DELETE_ALL, JOINED_NODES, REPLICATE, DELETE_REPLICA, JOIN
+        SET_PREDECESSOR, SET_SUCCESSOR, INSERT, QUERY, QUERY_ALL, DELETE, DELETE_ALL, JOINED_NODES, REPLICATE, DELETE_REPLICA, FAILED_INSERT, DELETE_FAILED_REPLICA, JOIN
     }
 
     MsgType msgType;
     String from_port;
-    String send_to;
+//    String send_to;
 
     @Override
     public String toString() {
@@ -32,7 +32,7 @@ public class DHTMessage implements Serializable {
         sb.append("msgtype:");
         sb.append(msgType.toString() + "\n");
         sb.append("fromport:" + from_port + "\n");
-        sb.append("sendto:" + send_to + "\n");
+//        sb.append("sendto:" + send_to + "\n");
         sb.append("msg:" + msg + "\n");
         return sb.toString();
     }

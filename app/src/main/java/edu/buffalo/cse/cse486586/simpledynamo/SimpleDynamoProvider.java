@@ -24,7 +24,7 @@ import java.io.Serializable;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,11 +66,56 @@ public class SimpleDynamoProvider extends ContentProvider {
     //port-><pre,succ>
     HashMap<String, NodePair> joinedNodes = new HashMap();
 
-    public void sendMesage(DHTMessage dhtMessage, String sendTo) {
+    public void sendMesage(DHTMessage dhtMessage, String sendTo) throws IOException {
         Log.d(TAG, "sending msg to " + sendTo);
-        dhtMessage.send_to = sendTo;
-        new ClientTask().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, dhtMessage);
-        Log.d(TAG, "msg sent");
+//        dhtMessage.send_to = sendTo;
+//        new ClientTask().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, dhtMessage);
+        DHTMessage[] msgs = new DHTMessage[1];
+        msgs[0] = dhtMessage;
+        String remotePort = sendTo;//msgs[0].send_to;
+        Socket socket;
+        try {
+            socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
+                    Integer.parseInt(remotePort));
+            ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
+            Log.d(TAG, "DHTmsg : sending msg " + msgs[0]);
+            os.writeObject(msgs[0]);
+            Log.d(TAG, "DHTmsg : msg sent to " + remotePort);
+            socket.close();
+//        } catch (SocketException e) {
+//            Log.e(TAG, e.getLocalizedMessage());
+//            Log.e(TAG, "retrying");
+//            try {
+//                Thread.sleep(100);
+//                socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
+//                        Integer.parseInt(remotePort));
+//                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
+//                Log.d(TAG, "DHTmsg : sending msg " + msgs[0]);
+//                os.writeObject(msgs[0]);
+//                Log.d(TAG, "DHTmsg : msg sent to " + remotePort);
+//                socket.close();
+//            } catch (InterruptedException e1) {
+//                e1.printStackTrace();
+//                Log.e(TAG, e.getLocalizedMessage());
+//                Log.e(TAG, "msg failed to send.. InterruptedException");
+        } catch (UnknownHostException e1) {
+            e1.printStackTrace();
+            Log.e(TAG, e1.getLocalizedMessage());
+            Log.e(TAG, "msg failed to send.. UnknownHostException");
+        }
+//        catch (IOException e1) {
+//                e1.printStackTrace();
+//                Log.e(TAG, e.getLocalizedMessage());
+//                Log.e(TAG, "msg failed to IOEXCEPTION");
+//
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        Log.d(TAG, "msg sent");
     }
 
     private boolean isCorrectNode(String key) {
@@ -142,7 +187,11 @@ public class SimpleDynamoProvider extends ContentProvider {
                 DHTMessage queryMsg = new DHTMessage();
                 queryMsg.msg = selection;
                 queryMsg.msgType = DHTMessage.MsgType.DELETE;
-                sendMesage(queryMsg, correctNode);
+                try {
+                    sendMesage(queryMsg, correctNode);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return 0;
@@ -155,7 +204,11 @@ public class SimpleDynamoProvider extends ContentProvider {
                     DHTMessage msg = new DHTMessage();
                     msg.msgType = DHTMessage.MsgType.DELETE;
                     msg.msg = "\"@\"";
-                    sendMesage(msg, node);
+                    try {
+                        sendMesage(msg, node);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -167,16 +220,24 @@ public class SimpleDynamoProvider extends ContentProvider {
         log("rep1" + rep1);
         log("joined nodes" + joinedNodes);
         log("rep1 successor" + joinedNodes.get(rep1));
-
         String rep2 = joinedNodes.get(rep1).successor;
-        DHTMessage dhtmsg = new DHTMessage();
-        dhtmsg.msg = fileName;
-        dhtmsg.msgType = DHTMessage.MsgType.DELETE_REPLICA;
-        sendMesage(dhtmsg, rep1);
-        DHTMessage dhtmsg2 = new DHTMessage();
-        dhtmsg2.msg = fileName;
-        dhtmsg2.msgType = DHTMessage.MsgType.DELETE_REPLICA;
-        sendMesage(dhtmsg2, rep2);
+
+        try {
+            DHTMessage dhtmsg = new DHTMessage();
+            dhtmsg.msg = fileName;
+            dhtmsg.msgType = DHTMessage.MsgType.DELETE_REPLICA;
+            sendMesage(dhtmsg, rep1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            DHTMessage dhtmsg2 = new DHTMessage();
+            dhtmsg2.msg = fileName;
+            dhtmsg2.msgType = DHTMessage.MsgType.DELETE_REPLICA;
+            sendMesage(dhtmsg2, rep2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -187,10 +248,15 @@ public class SimpleDynamoProvider extends ContentProvider {
     }
 
     private void updatePredSucc(String updatedPortNum, String nodeToUpdate, DHTMessage.MsgType msgType) {
-        DHTMessage dhtMessage = new DHTMessage();
-        dhtMessage.from_port = updatedPortNum;
-        dhtMessage.msgType = msgType;
-        sendMesage(dhtMessage, nodeToUpdate);
+        try {
+            DHTMessage dhtMessage = new DHTMessage();
+            dhtMessage.from_port = updatedPortNum;
+            dhtMessage.msgType = msgType;
+
+            sendMesage(dhtMessage, nodeToUpdate);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //only called on central node ie REMOTE_PORT0
@@ -259,7 +325,11 @@ public class SimpleDynamoProvider extends ContentProvider {
                 dhtMessage.msgType = DHTMessage.MsgType.JOINED_NODES;
                 dhtMessage.msg = joinedNodes.toString();
 
-                sendMesage(dhtMessage, e.getKey());
+                try {
+                    sendMesage(dhtMessage, e.getKey());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         }
     }
@@ -279,7 +349,7 @@ public class SimpleDynamoProvider extends ContentProvider {
                 outputStream = getContext().openFileOutput(key, Context.MODE_PRIVATE);
                 outputStream.write(value.getBytes());
                 outputStream.close();
-                sendReplicateMsg(MyUtils.cvtoString(values));
+                sendReplicateMsg(MyUtils.cvtoString(values), myPort);
             } catch (Exception e) {
                 Log.e(TAG, "File write failed" + e.getLocalizedMessage());
                 e.printStackTrace();
@@ -290,9 +360,30 @@ public class SimpleDynamoProvider extends ContentProvider {
             DHTMessage insertDhtMessage = new DHTMessage();
             insertDhtMessage.msgType = DHTMessage.MsgType.INSERT;
             insertDhtMessage.from_port = myPort;
-            insertDhtMessage.cv_msg = MyUtils.cvtoString(values);
+            insertDhtMessage.msg = MyUtils.cvtoString(values);
 //            sendMesage(insertDhtMessage, successor_port);
-            sendMesage(insertDhtMessage, correctNode);
+            try {
+                log("sending insery msg to " + correctNode);
+                sendMesage(insertDhtMessage, correctNode);
+            } catch (IOException e) {
+                log("socket fail, replicating");
+
+                DHTMessage failInsertDhtMessage = new DHTMessage();
+
+                failInsertDhtMessage.msg = MyUtils.cvtoString(values);
+                failInsertDhtMessage.msgType = DHTMessage.MsgType.REPLICATE;
+                try {
+                    String sendTo = joinedNodes.get(getReplica(correctNode)[1]).successor;
+                    sendMesage(failInsertDhtMessage, sendTo);
+                    sendReplicateMsg(MyUtils.cvtoString(values), correctNode);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                    loge("Failed to insert on replica too");
+                }
+//                sendReplicateMsg(MyUtils.cvtoString(values),correctNode);
+
+                e.printStackTrace();
+            }
 
         }
         return uri;
@@ -313,23 +404,44 @@ public class SimpleDynamoProvider extends ContentProvider {
         Log.d(TAG, m);
     }
 
-    private void sendReplicateMsg(String msg) {
-        Log.d(TAG, "send replicate msg:" + msg);
-        String rep1 = joinedNodes.get(myPort).successor;
-        log("rep1" + rep1);
-        log("joined nodes" + joinedNodes);
-        log("rep1 successor" + joinedNodes.get(rep1));
+    static void loge(String m) {
+        Log.e(TAG, m);
+    }
 
+    private String[] getReplica(String node) {
+        String rep1 = joinedNodes.get(node).successor;
         String rep2 = joinedNodes.get(rep1).successor;
-        DHTMessage dhtmsg = new DHTMessage();
-        dhtmsg.msg = msg;
-        dhtmsg.msgType = DHTMessage.MsgType.REPLICATE;
-        sendMesage(dhtmsg, rep1);
-        DHTMessage dhtmsg2 = new DHTMessage();
-        dhtmsg2.msg = msg;
-        dhtmsg2.msgType = DHTMessage.MsgType.REPLICATE;
-        sendMesage(dhtmsg2, rep2);
+        log("replicas for " + node + "are at " + rep1 + " " + rep2);
+        return new String[]{rep1, rep2};
+    }
 
+    private void sendReplica(String msg, String sendto, String onfail_sendto) {
+        DHTMessage dhtmsg = new DHTMessage();
+        try {
+            dhtmsg.msg = msg;
+            dhtmsg.msgType = DHTMessage.MsgType.REPLICATE;
+            sendMesage(dhtmsg, sendto);
+        } catch (IOException e) {
+            loge("failed to send to replica" + sendto);
+//            try {
+//
+//                sendMesage(dhtmsg, onfail_sendto);
+//            } catch (IOException e1) {
+//                loge("failed to send to replica3"+onfail_sendto);
+//                e1.printStackTrace();
+//            }
+            e.printStackTrace();
+        }
+    }
+
+    private void sendReplicateMsg(String msg, String node) {
+        String[] replicas = getReplica(node);
+        Log.d(TAG, "send replicate msg:" + msg);
+        String rep1 = replicas[0];//joinedNodes.get(myPort).successor;
+        String rep2 = replicas[1];//joinedNodes.get(rep1).successor;
+        String onFailRep = joinedNodes.get(rep2).successor;
+        sendReplica(msg, rep1, onFailRep);
+        sendReplica(msg, rep2, onFailRep);
     }
 
     private String queryAndWaitForReply(String remotePort, DHTMessage dhtMsg) {
@@ -371,25 +483,64 @@ public class SimpleDynamoProvider extends ContentProvider {
         // 11112=11124:11108,
         // 11116=11108:11120,
         // 11124=11120:11112
-//        if (myPort.equals(remotePorts[0])) {
-//            successor_port = REMOTE_PORT0;
-//            predecessor_port = REMOTE_PORT0;
-//            joinedNodes.put(REMOTE_PORT0, new NodePair(REMOTE_PORT0, REMOTE_PORT0));
-//
-//        }
+
+
         try {
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
             new ServerTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, serverSocket);
         } catch (IOException e) {
             Log.e(TAG, "Can't create a ServerSocket " + e.getLocalizedMessage());
         }
-//        if (!myPort.equals(REMOTE_PORT0)) {
-//            DHTMessage joinMessage = new DHTMessage();
-//            joinMessage.from_port = myPort;
-//            joinMessage.msgType = DHTMessage.MsgType.JOIN;
-//            sendMesage(joinMessage, REMOTE_PORT0);
-//        }
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                recoverFailedMsgs();
+                return null;
+            }
+        }.execute();
+
         return false;
+    }
+
+    private void recoverFailedMsgs() {
+        log("in recover failed msg");
+        MatrixCursor cur = new MatrixCursor(new String[]{"key", "value"});
+        String[] node = getReplica(myPort);
+        DHTMessage queryMsg = new DHTMessage();
+        queryMsg.msgType = DHTMessage.MsgType.QUERY;
+        queryMsg.msg = "\"@\"";
+        String send_to = node[0];
+        log("sending query @ to sucessor " + node[0]);
+        MyUtils.convertAndAppendToCur(cur, sendAndWaitforReply(queryMsg, send_to));
+        log("got reply.. inserting");
+//        if(cur)
+        cur.moveToFirst();
+        while (!cur.isAfterLast()) {
+            log("checking corret noce for " + cur.getString(0));
+            if (isCorrectNode(cur.getString(0))) {
+
+                try {
+                    MyUtils.writeToFile(getContext().openFileOutput(cur.getString(0), Context.MODE_PRIVATE), cur.getString(1));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                DHTMessage delMsg = new DHTMessage();
+                delMsg.msgType = DHTMessage.MsgType.DELETE_FAILED_REPLICA;
+                delMsg.msg = cur.getString(0);
+//                String send_to = node[0];
+
+
+//                ContentValues cv = new ContentValues();
+//                cv.put("key",cur.getString(0));
+//                cv. put("value", cur.getString(1));
+//
+//                insert(null, cv);
+            }
+            cur.moveToNext();
+        }
+        log("recovery done");
     }
 
     @Override
@@ -472,8 +623,8 @@ public class SimpleDynamoProvider extends ContentProvider {
                 DHTMessage msg = new DHTMessage();
                 msg.msgType = DHTMessage.MsgType.QUERY;
                 msg.msg = "\"@\"";
-                msg.send_to = node;
-                MyUtils.convertAndAppendToCur(cur, sendAndWaitforReply(msg));
+//                msg.send_to = node;
+                MyUtils.convertAndAppendToCur(cur, sendAndWaitforReply(msg, node));
 //                try {
 //                    Socket socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
 //                            Integer.parseInt(node));
@@ -497,11 +648,11 @@ public class SimpleDynamoProvider extends ContentProvider {
         return cur;
     }
 
-    static String sendAndWaitforReply(DHTMessage msg) {
+    static String sendAndWaitforReply(DHTMessage msg, String send_to) {
         String reply = null;
         try {
             Socket socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
-                    Integer.parseInt(msg.send_to));
+                    Integer.parseInt(send_to));
             ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
             BufferedReader in =
                     new BufferedReader(
@@ -511,7 +662,7 @@ public class SimpleDynamoProvider extends ContentProvider {
 //            msg.msg = "\"@\"";
             os.writeObject(msg);
             reply = in.readLine();
-            log("got reply from " + msg.send_to);
+            log("got reply from " + send_to);
             log(reply);
 //            MyUtils.convertAndAppendToCur(cur,reply);
             socket.close();
@@ -529,37 +680,52 @@ public class SimpleDynamoProvider extends ContentProvider {
     }
 
 
-    private class ClientTask extends AsyncTask<DHTMessage, Void, Void> {
-        @Override
-        protected Void doInBackground(DHTMessage... msgs) {
-            String remotePort = msgs[0].send_to;
-            Socket socket;
-            try {
-                socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
-                        Integer.parseInt(remotePort));
-                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
-                Log.d(TAG, "DHTmsg : sending msg " + msgs[0]);
-                os.writeObject(msgs[0]);
-                Log.d(TAG, "DHTmsg : msg sent to " + remotePort);
-                socket.close();
-            } catch (SocketException e) {
-                Log.e(TAG, e.getLocalizedMessage());
-                Log.e(TAG, "retrying");
-                try {
-                    Thread.sleep(1000);
-                    new ClientTask().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, msgs[0]);
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                    Log.e(TAG, e.getLocalizedMessage());
-                    log("msg failed to send.. i give up..");
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-    }
+//    private class ClientTask extends AsyncTask<DHTMessage, Void, Void> {
+//        @Override
+//        protected Void doInBackground(DHTMessage... msgs){
+//            String remotePort = msgs[0].send_to;
+//            Socket socket;
+//            try {
+//                socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
+//                        Integer.parseInt(remotePort));
+//                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
+//                Log.d(TAG, "DHTmsg : sending msg " + msgs[0]);
+//                os.writeObject(msgs[0]);
+//                Log.d(TAG, "DHTmsg : msg sent to " + remotePort);
+//                socket.close();
+//            } catch (SocketException e) {
+//                Log.e(TAG, e.getLocalizedMessage());
+//                Log.e(TAG, "retrying");
+//                try {
+//                    Thread.sleep(100);
+//                    socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
+//                            Integer.parseInt(remotePort));
+//                    ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
+//                    Log.d(TAG, "DHTmsg : sending msg " + msgs[0]);
+//                    os.writeObject(msgs[0]);
+//                    Log.d(TAG, "DHTmsg : msg sent to " + remotePort);
+//                    socket.close();
+//                } catch (InterruptedException e1) {
+//                    e1.printStackTrace();
+//                    Log.e(TAG, e.getLocalizedMessage());
+//                    Log.e(TAG, "msg failed to send.. InterruptedException");
+//                } catch (UnknownHostException e1) {
+//                    e1.printStackTrace();
+//                    Log.e(TAG, e.getLocalizedMessage());
+//                    Log.e(TAG, "msg failed to send.. UnknownHostException");
+//                } catch (IOException e1) {
+//                    e1.printStackTrace();
+//                    Log.e(TAG, e.getLocalizedMessage());
+//                    Log.e(TAG, "msg failed to IOEXCEPTION");
+//
+//                }
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//    }
 
     private class ServerTask extends AsyncTask<ServerSocket, String, Void> {
         @Override
@@ -592,11 +758,11 @@ public class SimpleDynamoProvider extends ContentProvider {
 //                                    successor_port = dhtMessage.from_port;
 //                                    break;
                                 case INSERT:
-                                    ContentValues values = MyUtils.stringToCv(dhtMessage.cv_msg);
+                                    ContentValues values = MyUtils.stringToCv(dhtMessage.msg);
                                     String key = values.getAsString("key");
                                     String string = values.getAsString("value");
                                     Log.d(TAG, "Insert rcvd:" + key + ":" + string);
-                                    insert(null, MyUtils.stringToCv(dhtMessage.cv_msg));
+                                    insert(null, MyUtils.stringToCv(dhtMessage.msg));
                                     break;
                                 case QUERY:
                                     Log.d(TAG, "rcvd query msg, fetching cursor");
@@ -644,6 +810,7 @@ public class SimpleDynamoProvider extends ContentProvider {
                                         Log.e(TAG, "File write failed");
                                     }
                                     break;
+
                                 case DELETE_REPLICA:
                                     log("deleting replica" + dhtMessage.msg);
                                     getContext().deleteFile(dhtMessage.msg);
