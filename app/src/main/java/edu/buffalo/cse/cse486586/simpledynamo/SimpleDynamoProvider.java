@@ -72,15 +72,15 @@ public class SimpleDynamoProvider extends ContentProvider {
 //        new ClientTask().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, dhtMessage);
         DHTMessage[] msgs = new DHTMessage[1];
         msgs[0] = dhtMessage;
-        String remotePort = sendTo;//msgs[0].send_to;
+//        String remotePort = sendTo;//msgs[0].send_to;
         Socket socket;
         try {
             socket = new Socket(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}),
-                    Integer.parseInt(remotePort));
+                    Integer.parseInt(sendTo));
             ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
             Log.d(TAG, "DHTmsg : sending msg " + msgs[0]);
             os.writeObject(msgs[0]);
-            Log.d(TAG, "DHTmsg : msg sent to " + remotePort);
+            Log.d(TAG, "DHTmsg : msg sent to " + sendTo);
             socket.close();
 //        } catch (SocketException e) {
 //            Log.e(TAG, e.getLocalizedMessage());
@@ -358,32 +358,19 @@ public class SimpleDynamoProvider extends ContentProvider {
             Log.d(TAG, "not correctNode");
             String correctNode = findCorrectNode(key);
             DHTMessage insertDhtMessage = new DHTMessage();
-            insertDhtMessage.msgType = DHTMessage.MsgType.INSERT;
+            insertDhtMessage.msgType = DHTMessage.MsgType.REPLICATE;
             insertDhtMessage.from_port = myPort;
             insertDhtMessage.msg = MyUtils.cvtoString(values);
 //            sendMesage(insertDhtMessage, successor_port);
             try {
                 log("sending insery msg to " + correctNode);
                 sendMesage(insertDhtMessage, correctNode);
-            } catch (IOException e) {
+            } catch (Exception e) {
                 log("socket fail, replicating");
-
-                DHTMessage failInsertDhtMessage = new DHTMessage();
-
-                failInsertDhtMessage.msg = MyUtils.cvtoString(values);
-                failInsertDhtMessage.msgType = DHTMessage.MsgType.REPLICATE;
-                try {
-                    String sendTo = joinedNodes.get(getReplica(correctNode)[1]).successor;
-                    sendMesage(failInsertDhtMessage, sendTo);
-                    sendReplicateMsg(MyUtils.cvtoString(values), correctNode);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                    loge("Failed to insert on replica too");
-                }
-//                sendReplicateMsg(MyUtils.cvtoString(values),correctNode);
 
                 e.printStackTrace();
             }
+            sendReplicateMsg(MyUtils.cvtoString(values), correctNode);
 
         }
         return uri;
@@ -507,18 +494,38 @@ public class SimpleDynamoProvider extends ContentProvider {
         log("in recover failed msg");
         MatrixCursor cur = new MatrixCursor(new String[]{"key", "value"});
         String[] node = getReplica(myPort);
+
         DHTMessage queryMsg = new DHTMessage();
         queryMsg.msgType = DHTMessage.MsgType.QUERY;
         queryMsg.msg = "\"@\"";
         String send_to = node[0];
         log("sending query @ to sucessor " + node[0]);
         MyUtils.convertAndAppendToCur(cur, sendAndWaitforReply(queryMsg, send_to));
-        log("got reply.. inserting");
+
+
+        DHTMessage queryMsg2 = new DHTMessage();
+        queryMsg2.msgType = DHTMessage.MsgType.QUERY;
+        queryMsg2.msg = "\"@\"";
+        send_to = joinedNodes.get(myPort).predecessor;
+        log("sending query @ to pre " + send_to);
+        MyUtils.convertAndAppendToCur(cur, sendAndWaitforReply(queryMsg2, send_to));
+
+
+        DHTMessage queryMsg3 = new DHTMessage();
+        queryMsg3.msgType = DHTMessage.MsgType.QUERY;
+        queryMsg3.msg = "\"@\"";
+        send_to = joinedNodes.get(send_to).predecessor;
+        log("sending query @ to pre2 " + send_to);
+        MyUtils.convertAndAppendToCur(cur, sendAndWaitforReply(queryMsg3, send_to));
+
+        log("got reply.. " + MyUtils.cursorToString(cur) + "inserting");
 //        if(cur)
         cur.moveToFirst();
         while (!cur.isAfterLast()) {
             log("checking corret noce for " + cur.getString(0));
-            if (isCorrectNode(cur.getString(0))) {
+            String pre1 = joinedNodes.get(myPort).predecessor;
+            String pre2 = joinedNodes.get(pre1).predecessor;
+            if (isCorrectNode(cur.getString(0)) || isCorrectNode(cur.getString(0), pre1) || isCorrectNode(cur.getString(0), pre2)) {
 
                 try {
                     MyUtils.writeToFile(getContext().openFileOutput(cur.getString(0), Context.MODE_PRIVATE), cur.getString(1));
