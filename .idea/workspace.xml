@@ -14,14 +14,16 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: edu.buffalo.cse.cse486586.simpledynamo" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00c445ae-068d-4f92-849a-82c0d0b1179f" name="Default" comment="Removed Successor Predecessor&#10;Changed from dynamic to static membership&#10;-Phase 1 passed, Phase 2 passed, Phase 3 passed">
+    <list default="true" id="00c445ae-068d-4f92-849a-82c0d0b1179f" name="Default" comment="Final Submission&#10;-All Phases Passed">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/DHTMessage.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/DHTMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/MyUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/MyUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/edu/buffalo/cse/cse486586/simpledynamo/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/edu/buffalo/cse/cse486586/simpledynamo/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_simple_dynamo.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_simple_dynamo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SimpleDynamo.iws" />
@@ -50,51 +52,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SimpleDynamoProvider.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SimpleDynamoProvider.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.11924119" vertical-offset="5099" max-vertical-offset="7650">
-              <caret line="645" column="9" selection-start-line="645" selection-start-column="9" selection-end-line="645" selection-end-column="9" />
+            <state vertical-scroll-proportion="-7.4814816" vertical-offset="8888" max-vertical-offset="9225">
+              <caret line="640" column="0" selection-start-line="640" selection-start-column="0" selection-end-line="640" selection-end-column="0" />
               <folding>
-                <element signature="class#NodePair#0" expanded="false" />
-                <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-                <element signature="e#2811#2850#0" expanded="false" />
-                <element signature="e#3892#3926#0" expanded="false" />
-                <element signature="e#4282#4366#0" expanded="false" />
-                <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="e#5857#5899#0" expanded="false" />
-                <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="e#10069#10124#0" expanded="false" />
-                <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="class#12800:12936" expanded="false" />
-                <element signature="initializer##0;class#12800:12936" expanded="false" />
-                <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="e#19116#19136#0" expanded="false" />
-                <element signature="e#21828#21870#0" expanded="false" />
-                <element signature="e#22956#23007#0" expanded="false" />
-                <element signature="e#24943#24966#0" expanded="false" />
-                <element signature="e#26399#26447#0" expanded="false" />
-                <element signature="e#30598#30653#0" expanded="false" />
-                <element signature="e#32165#32214#0" expanded="false" />
-                <element signature="e#32944#32994#0" expanded="false" />
-                <element signature="e#33744#33820#0" expanded="false" />
-                <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+                <element signature="e#11980#12187#0" expanded="true" />
+                <element signature="e#12176#12177#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleDynamoActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="225">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="540">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleDynamoActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="585">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.331565" vertical-offset="1015" max-vertical-offset="1575">
+              <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -103,8 +98,8 @@
       <file leaf-file-name="MyUtils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/MyUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="2250">
-              <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="2220">
+              <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -113,8 +108,8 @@
       <file leaf-file-name="DHTMessage.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/DHTMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="615">
-              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="450">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -788,11 +783,13 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/MyUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_simple_dynamo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/DHTMessage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java" />
       </list>
     </option>
   </component>
@@ -816,7 +813,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -827,7 +824,153 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleDynamo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
@@ -1032,72 +1175,71 @@
       <created>1429952352238</created>
       <updated>1429952352238</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Failure Recovery mechanism for one node fail&#10;TODO: linearizability&#10;-Phase 1 passed, Phase 2 passed, Phase 3 passed">
+      <created>1430104514740</created>
+      <updated>1430104514740</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added Failure Recovery mechanism for replica node&#10;TODO: linearizability&#10;-Phase 1 passed, Phase 2 passed, Phase 3 passed">
+      <created>1430129029705</created>
+      <updated>1430129029705</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="24" width="1325" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4689984" sideWeight="0.5003897" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37042925" sideWeight="0.49961028" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24941543" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26734218" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.49961028" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.49961028" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4689984" sideWeight="0.5003897" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32890365" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06478405" sideWeight="0.49961028" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26734218" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940617" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.49961028" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4689984" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24941543" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969603" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.49961028" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3990461" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1118,57 +1260,101 @@
     <MESSAGE value="Test" />
     <MESSAGE value="Removed Ring Routing - Phase 1 passed, Phase 2 passed, Phase 3 passed" />
     <MESSAGE value="Removed Successor Predecessor&#10;Changed from dynamic to static membership&#10;-Phase 1 passed, Phase 2 passed, Phase 3 passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed Successor Predecessor&#10;Changed from dynamic to static membership&#10;-Phase 1 passed, Phase 2 passed, Phase 3 passed" />
+    <MESSAGE value="Added Failure Recovery mechanism for one node fail&#10;TODO: linearizability&#10;-Phase 1 passed, Phase 2 passed, Phase 3 passed" />
+    <MESSAGE value="Added Failure Recovery mechanism for replica node&#10;TODO: linearizability&#10;-Phase 1 passed, Phase 2 passed, Phase 3 passed" />
+    <MESSAGE value="Final Submission&#10;-All Phases Passed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Submission&#10;-All Phases Passed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java</url>
-          <line>121</line>
-          <properties class="edu.buffalo.cse.cse486586.simpledynamo.SimpleDynamoProvider" method="isCorrectNode" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="540">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="1905">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/MyUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="2220">
+          <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/DHTMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="705">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13005">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="540">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="585">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/MyUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2220">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/DHTMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="660">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3246" max-vertical-offset="5640">
           <caret line="516" column="17" selection-start-line="516" selection-start-column="17" selection-end-line="516" selection-end-column="17" />
           <folding>
-            <element signature="class#NodePair#0" expanded="false" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="e#2811#2850#0" expanded="false" />
-            <element signature="e#3892#3926#0" expanded="false" />
-            <element signature="e#4282#4366#0" expanded="false" />
-            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#5857#5899#0" expanded="false" />
-            <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#10069#10124#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#12800:12936" expanded="false" />
-            <element signature="initializer##0;class#12800:12936" expanded="false" />
-            <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#19116#19136#0" expanded="false" />
-            <element signature="e#21828#21870#0" expanded="false" />
-            <element signature="e#22956#23007#0" expanded="false" />
-            <element signature="e#24943#24966#0" expanded="false" />
-            <element signature="e#26399#26447#0" expanded="false" />
-            <element signature="e#30598#30653#0" expanded="false" />
-            <element signature="e#32165#32214#0" expanded="false" />
-            <element signature="e#32944#32994#0" expanded="false" />
-            <element signature="e#33744#33820#0" expanded="false" />
-            <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1202,35 +1388,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1443" max-vertical-offset="8835">
           <caret line="109" column="46" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
           <folding>
-            <element signature="class#NodePair#0" expanded="false" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="e#2811#2850#0" expanded="false" />
-            <element signature="e#3892#3926#0" expanded="false" />
-            <element signature="e#4282#4366#0" expanded="false" />
-            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#5857#5899#0" expanded="false" />
-            <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#10069#10124#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#12800:12936" expanded="false" />
-            <element signature="initializer##0;class#12800:12936" expanded="false" />
-            <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#19116#19136#0" expanded="false" />
-            <element signature="e#21828#21870#0" expanded="false" />
-            <element signature="e#22956#23007#0" expanded="false" />
-            <element signature="e#24943#24966#0" expanded="false" />
-            <element signature="e#26399#26447#0" expanded="false" />
-            <element signature="e#30598#30653#0" expanded="false" />
-            <element signature="e#32165#32214#0" expanded="false" />
-            <element signature="e#32944#32994#0" expanded="false" />
-            <element signature="e#33744#33820#0" expanded="false" />
-            <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1264,35 +1423,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="6992" max-vertical-offset="8910">
           <caret line="474" column="16" selection-start-line="474" selection-start-column="16" selection-end-line="474" selection-end-column="16" />
           <folding>
-            <element signature="class#NodePair#0" expanded="false" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="e#2811#2850#0" expanded="false" />
-            <element signature="e#3892#3926#0" expanded="false" />
-            <element signature="e#4282#4366#0" expanded="false" />
-            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#5857#5899#0" expanded="false" />
-            <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#10069#10124#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#12800:12936" expanded="false" />
-            <element signature="initializer##0;class#12800:12936" expanded="false" />
-            <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#19116#19136#0" expanded="false" />
-            <element signature="e#21828#21870#0" expanded="false" />
-            <element signature="e#22956#23007#0" expanded="false" />
-            <element signature="e#24943#24966#0" expanded="false" />
-            <element signature="e#26399#26447#0" expanded="false" />
-            <element signature="e#30598#30653#0" expanded="false" />
-            <element signature="e#32165#32214#0" expanded="false" />
-            <element signature="e#32944#32994#0" expanded="false" />
-            <element signature="e#33744#33820#0" expanded="false" />
-            <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1326,35 +1458,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2625">
           <caret line="489" column="36" selection-start-line="489" selection-start-column="36" selection-end-line="489" selection-end-column="36" />
           <folding>
-            <element signature="class#NodePair#0" expanded="false" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="e#2811#2850#0" expanded="false" />
-            <element signature="e#3892#3926#0" expanded="false" />
-            <element signature="e#4282#4366#0" expanded="false" />
-            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#5857#5899#0" expanded="false" />
-            <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#10069#10124#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#12800:12936" expanded="false" />
-            <element signature="initializer##0;class#12800:12936" expanded="false" />
-            <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#19116#19136#0" expanded="false" />
-            <element signature="e#21828#21870#0" expanded="false" />
-            <element signature="e#22956#23007#0" expanded="false" />
-            <element signature="e#24943#24966#0" expanded="false" />
-            <element signature="e#26399#26447#0" expanded="false" />
-            <element signature="e#30598#30653#0" expanded="false" />
-            <element signature="e#32165#32214#0" expanded="false" />
-            <element signature="e#32944#32994#0" expanded="false" />
-            <element signature="e#33744#33820#0" expanded="false" />
-            <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1380,35 +1485,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3270">
           <caret line="242" column="19" selection-start-line="242" selection-start-column="19" selection-end-line="242" selection-end-column="19" />
           <folding>
-            <element signature="class#NodePair#0" expanded="false" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="e#2811#2850#0" expanded="false" />
-            <element signature="e#3892#3926#0" expanded="false" />
-            <element signature="e#4282#4366#0" expanded="false" />
-            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#5857#5899#0" expanded="false" />
-            <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#10069#10124#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#12800:12936" expanded="false" />
-            <element signature="initializer##0;class#12800:12936" expanded="false" />
-            <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#19116#19136#0" expanded="false" />
-            <element signature="e#21828#21870#0" expanded="false" />
-            <element signature="e#22956#23007#0" expanded="false" />
-            <element signature="e#24943#24966#0" expanded="false" />
-            <element signature="e#26399#26447#0" expanded="false" />
-            <element signature="e#30598#30653#0" expanded="false" />
-            <element signature="e#32165#32214#0" expanded="false" />
-            <element signature="e#32944#32994#0" expanded="false" />
-            <element signature="e#33744#33820#0" expanded="false" />
-            <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1449,35 +1527,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1005">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
-            <element signature="class#NodePair#0" expanded="false" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="e#2811#2850#0" expanded="false" />
-            <element signature="e#3892#3926#0" expanded="false" />
-            <element signature="e#4282#4366#0" expanded="false" />
-            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#5857#5899#0" expanded="false" />
-            <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#10069#10124#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#12800:12936" expanded="false" />
-            <element signature="initializer##0;class#12800:12936" expanded="false" />
-            <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#19116#19136#0" expanded="false" />
-            <element signature="e#21828#21870#0" expanded="false" />
-            <element signature="e#22956#23007#0" expanded="false" />
-            <element signature="e#24943#24966#0" expanded="false" />
-            <element signature="e#26399#26447#0" expanded="false" />
-            <element signature="e#30598#30653#0" expanded="false" />
-            <element signature="e#32165#32214#0" expanded="false" />
-            <element signature="e#32944#32994#0" expanded="false" />
-            <element signature="e#33744#33820#0" expanded="false" />
-            <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1502,35 +1553,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1005">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
-            <element signature="class#NodePair#0" expanded="false" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="e#2811#2850#0" expanded="false" />
-            <element signature="e#3892#3926#0" expanded="false" />
-            <element signature="e#4282#4366#0" expanded="false" />
-            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#5857#5899#0" expanded="false" />
-            <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#10069#10124#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#12800:12936" expanded="false" />
-            <element signature="initializer##0;class#12800:12936" expanded="false" />
-            <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#19116#19136#0" expanded="false" />
-            <element signature="e#21828#21870#0" expanded="false" />
-            <element signature="e#22956#23007#0" expanded="false" />
-            <element signature="e#24943#24966#0" expanded="false" />
-            <element signature="e#26399#26447#0" expanded="false" />
-            <element signature="e#30598#30653#0" expanded="false" />
-            <element signature="e#32165#32214#0" expanded="false" />
-            <element signature="e#32944#32994#0" expanded="false" />
-            <element signature="e#33744#33820#0" expanded="false" />
-            <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1592,26 +1616,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46255508" vertical-offset="0" max-vertical-offset="510">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-21/android/util/Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3314121" vertical-offset="20" max-vertical-offset="3045">
           <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="510">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1622,57 +1630,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="225">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_simple_dynamo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="955" max-vertical-offset="1395">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+          <folding>
+            <element signature="e#233#266#0" expanded="true" />
+            <element signature="e#291#326#0" expanded="true" />
+            <element signature="e#352#387#0" expanded="true" />
+            <element signature="e#411#444#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="540">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/MyUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="987" max-vertical-offset="2010">
-          <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2010">
+          <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/DHTMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="615">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="450">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.11924119" vertical-offset="5099" max-vertical-offset="7650">
-          <caret line="645" column="9" selection-start-line="645" selection-start-column="9" selection-end-line="645" selection-end-column="9" />
+        <state vertical-scroll-proportion="-7.4814816" vertical-offset="8888" max-vertical-offset="9225">
+          <caret line="640" column="0" selection-start-line="640" selection-start-column="0" selection-end-line="640" selection-end-column="0" />
           <folding>
-            <element signature="class#NodePair#0" expanded="false" />
-            <element signature="method#NodePair#0;class#NodePair#0" expanded="false" />
-            <element signature="e#2811#2850#0" expanded="false" />
-            <element signature="e#3892#3926#0" expanded="false" />
-            <element signature="e#4282#4366#0" expanded="false" />
-            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#5857#5899#0" expanded="false" />
-            <element signature="method#broadcastDeleteAll#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#sendDeleteReplicaMsg#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#updatePredSucc#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#nodeJoin#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#10069#10124#0" expanded="false" />
-            <element signature="method#broadcastJoinedNodes#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="class#12800:12936" expanded="false" />
-            <element signature="initializer##0;class#12800:12936" expanded="false" />
-            <element signature="method#findCorrectNode#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#getReplica#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#queryAndWaitForReply#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="e#19116#19136#0" expanded="false" />
-            <element signature="e#21828#21870#0" expanded="false" />
-            <element signature="e#22956#23007#0" expanded="false" />
-            <element signature="e#24943#24966#0" expanded="false" />
-            <element signature="e#26399#26447#0" expanded="false" />
-            <element signature="e#30598#30653#0" expanded="false" />
-            <element signature="e#32165#32214#0" expanded="false" />
-            <element signature="e#32944#32994#0" expanded="false" />
-            <element signature="e#33744#33820#0" expanded="false" />
-            <element signature="method#upateJoinedNodes#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="e#11980#12187#0" expanded="true" />
+            <element signature="e#12176#12177#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/edu/buffalo/cse/cse486586/simpledynamo/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63920456" vertical-offset="45" max-vertical-offset="870">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.331565" vertical-offset="1015" max-vertical-offset="1575">
+          <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
