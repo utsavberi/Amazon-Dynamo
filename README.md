@@ -39,90 +39,86 @@ Dynamo design:
 The lecture slides give an overview, but do not discuss Dynamo in detail, so it should be a 
 good reference to get an overall idea. The paper presents the detail, so it should be a good 
 reference for actual implementation. 
-<h3>
-Step 0: Importing the project template 
-</h3>
-Just like the previous assignment, we have a project template you can import to Android 
-Studio. 
-1. Download​
- the project template zip file​
- to a directory. 
-2. Extract the template zip file and copy it to your Android Studio projects directory. 
-a. Make sure that you copy the correct directory. After unzipping, the directory 
-name should be “SimpleDynamo”, and right underneath, it should contain a number of directories and files such as “app”, “build”, “gradle”, “build.gradle”, 
-“gradlew”, etc. 
-3. After copying, delete the downloaded template zip file and unzipped directories and 
-files.​
- This is to make sure that you do not submit the template you just downloaded. 
-(There were many people who did this before.) 
-4. Open the project template you just copied in Android Studio. 
-5. Use the project template for implementing all the components for this assignment. 
-6. The template has the package name of “edu.buffalo.cse.cse486586.simpledynamo“. 
+##Step 0: Importing the project template 
+<p>Just like the previous assignment, we have a project template you can import to Android 
+Studio. </p>
+<ol>
+<li>Download the project template zip file to a directory. 
+<li>Extract the template zip file and copy it to your Android Studio projects directory. 
+Make sure that you copy the correct directory. After unzipping, the directory name should be “SimpleDynamo”, and right underneath, it should contain a number of directories and files such as “app”, “build”, “gradle”, “build.gradle”,  “gradlew”, etc. 
+<li>After copying, delete the downloaded template zip file and unzipped directories and 
+files. This is to make sure that you do not submit the template you just downloaded. (There were many people who did this before.) 
+<li>Open the project template you just copied in Android Studio. 
+<li>Use the project template for implementing all the components for this assignment. 
+<li>The template has the package name of “edu.buffalo.cse.cse486586.simpledynamo“. 
 Please do not change this. 
-7. The template also defines a content provider authority and class. Please use it to 
+<li>The template also defines a content provider authority and class. Please use it to 
 implement your Dynamo functionalities. 
-8. We will use SHA­1 as our hash function to generate keys just as last time. 
-9. The template is very minimal for this assignment. However, you can reuse any code 
+<li>We will use SHA­1 as our hash function to generate keys just as last time. 
+<li>The template is very minimal for this assignment. However, you can reuse any code 
 from your previous submissions. 
-10. You can add more to the main Activity in order to test your code. However, this is 
-entirely optional and there is no grading component for your Activity. 
-Step 1: Writing the Content Provider 
+<li>You can add more to the main Activity in order to test your code. However, this is 
+entirely optional and there is no grading component for your Activity.
+</ol>
+
+##Step 1: Writing the Content Provider 
 Just like the previous assignment, the content provider should implement all storage 
 functionalities. For example, it should create server and client threads (if this is what you 
 decide to implement), open sockets, and respond to incoming requests. When writing your 
 system, you can make the following assumptions: 
-1. Just like the previous assignment, you need to support insert/query/delete operations. 
+<ol>
+<li>Just like the previous assignment, you need to support insert/query/delete operations. 
 Also, you need to support @ and * queries. 
-2. There are always 5 nodes in the system. There is no need to implement 
+<li>There are always 5 nodes in the system. There is no need to implement 
 adding/removing nodes from the system. 
-3. However, there can be ​
+<li>However, there can be ​
 at most 1 node failure at any given time ​
 . We will emulate a 
 failure only by force closing an app instance. We will ​
 not ​
  emulate a failure by killing an 
 entire emulator instance. 
-4. All failures are temporary; ​
+<li>All failures are temporary; ​
  you can assume that a failed node will recover soon, i.e., it 
 will not be permanently unavailable during a run. 
-5. When a node recovers, it should copy all the object writes it missed during the failure. 
+<li>When a node recovers, it should copy all the object writes it missed during the failure. 
 This can be done by asking the right nodes and copy from them. 
-6. Please focus on correctness rather than performance. ​
+<li>Please focus on correctness rather than performance. ​
  Once you handle failures 
 correctly, if you still have time, you can improve your performance. 
-7. Your content provider should support ​
+<li>Your content provider should support ​
 concurrent read/write operations ​
 . 
-8. Your content provider should handle ​
+<li>Your content provider should handle ​
 a failure happening at the same time with 
 read/write operations ​
 . 
-9. Replication should be done exactly the same way as Dynamo does. ​
+<li>Replication should be done exactly the same way as Dynamo does. ​
  In other words, a 
 (key, value) pair should be replicated over three consecutive partitions, starting from 
 the partition that the key belongs to. 
-10. Unlike Dynamo, there are two things you do not need to implement. a. Virtual nodes: Your implementation should use physical nodes rather than 
+<li>Unlike Dynamo, there are two things you do not need to implement. a. Virtual nodes: Your implementation should use physical nodes rather than 
 virtual nodes, i.e., all partitions are static and fixed. 
 b. Hinted handoff: Your implementation do not need to implement hinted handoff. 
 This means that when there is a failure, it is OK to replicate on only two nodes. 
-11. All replicas should store the same value for each key. This is “per­key” consistency. 
+<li>All replicas should store the same value for each key. This is “per­key” consistency. 
 There is no consistency guarantee you need to provide across keys. More formally, 
 you need to implement ​
 per­key linearizability ​
 . 
-12. Each content provider instance should have a node id derived from its emulator port. 
+<li>Each content provider instance should have a node id derived from its emulator port. 
 This node id should be obtained by applying the above hash function (i.e., genHash()) 
 to the emulator port. For example, the node id of the content provider instance running 
 on emulator­5554 should be, ​
 node_id = genHash(“5554”) ​
 . This is necessary to find the 
 correct position of each node in the Dynamo ring. 
-13. Your content provider’s URI should be 
+<li>Your content provider’s URI should be 
 “content://edu.buffalo.cse.cse486586.simpledynamo.provider”, which means that any 
 app should be able to access your content provider using that URI. This is already 
 defined in the template, so please don’t change this. Your content provider does not 
 need to match/support any other URI pattern. 
-14. We have fixed the ports & sockets. 
+<li>We have fixed the ports & sockets. 
 a. Your app should open one server socket that listens on 10000. 
 b. You need to use run_avd.py and set_redir.py to set up the testing environment. 
 c. The grading will use 5 AVDs. The redirection ports are 11108, 11112, 11116, 
@@ -141,24 +137,25 @@ iv.
 emulator­5560: “5560” 
 v.
 emulator­5562: “5562” 
-15. Any app (not just your app) should be able to access (read and write) your content 
+<li>Any app (not just your app) should be able to access (read and write) your content 
 provider. As with the previous assignment, please do not include any permission to 
 access your content provider. 
+ </ol>
  
-The following is a guideline for your content provider based on the design of Amazon 
-Dynamo: 
-1. Membership 
+##The following is a guideline for your content provider based on the design of Amazon Dynamo: 
+<ol>
+<li>Membership 
 a. Just as the original Dynamo, every node can know every other node. ​
  This 
 means that each node knows all other nodes in the system and also knows 
 exactly which partition belongs to which node; any node can forward a request 
 to the correct node without using a ring­based routing. 
-2. Request routing a. Unlike Chord, each Dynamo node knows all other nodes in the system and also 
+<li>Request routing a. Unlike Chord, each Dynamo node knows all other nodes in the system and also 
 knows exactly which partition belongs to which node. 
 b. Under no failures, a request for a key is directly forwarded to the coordinator 
 (i.e., the successor of the key), and the coordinator should be in charge of 
 serving read/write operations. 
-3. Quorum replication 
+<li>Quorum replication 
 a. For linearizability, you can implement a quorum­based replication used by 
 Dynamo. 
 b. Note that the original design does not provide linearizability. You need to adapt 
@@ -179,7 +176,7 @@ copies from the most recent copy.
 g. For read operations, if the readers in the reader quorum have different versions 
 of the same object, the coordinator should pick the most recent version and 
 return it. 
-4. Chain replication 
+<li>Chain replication 
 a. Another replication strategy you can implement is chain replication, which 
 provides linearizability. 
 b. If you are interested in more details, please take a look at the following paper: 
@@ -189,7 +186,7 @@ propagates to the next two partitions in sequence. The last partition returns th
 result of the write. 
 d. A read operation always comes to the last partition and reads the value from 
 the last partition. 
-5. Failure handling 
+<li>Failure handling 
 a. Handling failures should be done very carefully because there can be many 
 corner cases to consider and cover. 
 b. Just as the original Dynamo, each request can be used to detect a node failure. 
@@ -206,7 +203,8 @@ on socket creation or connect status to judge node failures. Please use an
 explicit method to test whether an app instance is running or not, e.g., using a socket read timeout as described above. 
 e. When a coordinator for a request fails and it does not respond to the request, 
 its successor can be contacted next for the request. 
-Testing  
+</ol>
+##Testing  
 We have testing programs to help you see how your code does with our grading criteria. 
 There are 6 phases in testing. ​
 The first three phases will not take much time, so it’ll be better 
