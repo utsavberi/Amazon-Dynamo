@@ -28,19 +28,14 @@ public class SimpleDynamoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_simple_dynamo);
-    
-		TextView tv = (TextView) findViewById(R.id.textView1);
-        tv.setMovementMethod(new ScrollingMovementMethod());
+        setContentView(R.layout.activity_simple_dynamo);
 
-//        TextView tv = (TextView) findViewById(R.id.textView1);
-//        tv.setMovementMethod(new ScrollingMovementMethod());
+        TextView tv = (TextView) findViewById(R.id.textView1);
+        tv.setMovementMethod(new ScrollingMovementMethod());
 
         TextView tv2 = (TextView) findViewById(R.id.response_tv);
         tv2.setMovementMethod(new ScrollingMovementMethod());
 
-//        findViewById(R.id.button3).setOnClickListener(
-//                new OnTestClickListener(tv, getContentResolver()));
         final EditText send_txt = (EditText) findViewById(R.id.send_txt);
         final TextView response_tv = (TextView) findViewById(R.id.response_tv);
 
@@ -50,9 +45,7 @@ public class SimpleDynamoActivity extends Activity {
 
                 ContentResolver mContentResolver = getContentResolver();
                 Uri mUri = buildUri("content", "edu.buffalo.cse.cse486586.simpledynamo.provider");
-                Cursor resultCursor = mContentResolver.query(mUri, null,
-                        "\"@\"", null, null);
-                Log.d(TAG, "Ldump");
+                Cursor resultCursor = mContentResolver.query(mUri, null, "\"@\"", null, null);
                 response_tv.setText("");
                 resultCursor.moveToFirst();
                 while (!resultCursor.isAfterLast()) {
@@ -60,8 +53,6 @@ public class SimpleDynamoActivity extends Activity {
                     response_tv.append(resultCursor.getString(0) + " : " + resultCursor.getString(1) + "\n");
                     resultCursor.moveToNext();
                 }
-
-
             }
 
         });
@@ -81,7 +72,6 @@ public class SimpleDynamoActivity extends Activity {
                 ContentResolver mContentResolver = getContentResolver();
                 Uri mUri = buildUri("content", "edu.buffalo.cse.cse486586.simpledynamo.provider");
                 mContentResolver.insert(mUri, cv);
-
             }
         });
 
@@ -101,23 +91,20 @@ public class SimpleDynamoActivity extends Activity {
                     response_tv.append(resultCursor.getString(0) + " : " + resultCursor.getString(1) + "\n");
                     resultCursor.moveToNext();
                 }
-
-
             }
 
         });
     }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.simple_dynamo, menu);
-		return true;
-	}
-	
-	public void onStop() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.simple_dynamo, menu);
+        return true;
+    }
+
+    public void onStop() {
         super.onStop();
         Log.v("Test", "onStop()");
-	}
+    }
 
 }
