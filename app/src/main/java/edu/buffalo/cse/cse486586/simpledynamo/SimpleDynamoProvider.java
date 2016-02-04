@@ -11,8 +11,8 @@ import android.telephony.TelephonyManager;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.buffalo.cse.cse486586.simpledynamo.Repositories.ContextRepository;
 import edu.buffalo.cse.cse486586.simpledynamo.core.Dynamo;
+import edu.buffalo.cse.cse486586.simpledynamo.repositories.ContextRepository;
 
 /**
  * Provides access of the Dynamo to the UI Activity

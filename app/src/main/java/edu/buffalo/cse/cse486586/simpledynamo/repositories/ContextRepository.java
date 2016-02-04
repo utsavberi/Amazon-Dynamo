@@ -1,4 +1,4 @@
-package edu.buffalo.cse.cse486586.simpledynamo.Repositories;
+package edu.buffalo.cse.cse486586.simpledynamo.repositories;
 
 import android.content.Context;
 

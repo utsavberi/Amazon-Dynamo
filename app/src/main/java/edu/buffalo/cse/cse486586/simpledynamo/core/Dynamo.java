@@ -16,7 +16,7 @@ import java.util.Formatter;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.buffalo.cse.cse486586.simpledynamo.Repositories.KeyValueRepository;
+import edu.buffalo.cse.cse486586.simpledynamo.repositories.KeyValueRepository;
 
 /**
  * A distributed Hash Table with Key-Value based storage and replication
