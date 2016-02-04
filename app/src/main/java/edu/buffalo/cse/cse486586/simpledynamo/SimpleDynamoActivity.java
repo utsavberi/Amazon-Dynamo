@@ -13,8 +13,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.security.NoSuchAlgorithmException;
-
+/**
+ * The primary UI Activity class to test the dynamo DHT
+ */
 public class SimpleDynamoActivity extends Activity {
     static final String TAG = SimpleDynamoActivity.class.getSimpleName();
 
@@ -64,11 +65,7 @@ public class SimpleDynamoActivity extends Activity {
                 ContentValues cv = new ContentValues();
                 cv.put("key", txt.split(",")[0]);
                 cv.put("value", txt.split(",")[0]);
-                try {
-                    response_tv.append("inserted " + MyUtils.genHash(txt));
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                }
+                response_tv.append("inserted " + txt);
                 ContentResolver mContentResolver = getContentResolver();
                 Uri mUri = buildUri("content", "edu.buffalo.cse.cse486586.simpledynamo.provider");
                 mContentResolver.insert(mUri, cv);

@@ -2,21 +2,31 @@ package edu.buffalo.cse.cse486586.simpledynamo;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
+import android.telephony.TelephonyManager;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import edu.buffalo.cse.cse486586.simpledynamo.Repositories.ContextRepository;
+import edu.buffalo.cse.cse486586.simpledynamo.core.Dynamo;
 
+/**
+ * Provides access of the Dynamo to the UI Activity
+ */
 public class SimpleDynamoProvider extends ContentProvider {
 
     Dynamo dynamo;
 
     @Override
     public boolean onCreate() {
-        dynamo = new Dynamo(10000, getContext());
+        TelephonyManager tel = (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
+        String portStr = tel.getLine1Number().substring(tel.getLine1Number().length() - 4);
+
+        dynamo = new Dynamo(10000, Integer.parseInt(portStr) * 2, new ContextRepository(getContext()));
 
         dynamo.addNode("11108", "11112", "11116");
         dynamo.addNode("11120", "11116", "11124");

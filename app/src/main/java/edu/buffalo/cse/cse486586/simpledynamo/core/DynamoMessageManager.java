@@ -1,4 +1,4 @@
-package edu.buffalo.cse.cse486586.simpledynamo;
+package edu.buffalo.cse.cse486586.simpledynamo.core;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -10,8 +10,13 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
+ * An asynchronous task that opens a socket in the background and waits for
+ * incoming requests and calls the respective methods of the dynamo as per
+ * the type of message received.
+ *
  * Created by utsav on 1/27/16.
  */
 class DynamoMessageManager extends AsyncTask<ServerSocket, String, Void> {
@@ -47,11 +52,11 @@ class DynamoMessageManager extends AsyncTask<ServerSocket, String, Void> {
                                 break;
                             case QUERY_ALL_LOCAL: {
                                 HashMap<String, String> result = dynamo.getAllLocal();
-                                out.println(MyUtils.hashMapToString(result));
+                                out.println(hashMapToString(result));
                             }
                             case QUERY_ALL_GLOBAL: {
                                 HashMap<String, String> result = dynamo.getAllGlobal();
-                                out.println(MyUtils.hashMapToString(result));
+                                out.println(hashMapToString(result));
                             }
                             case DELETE:
                                 dynamo.remove(dhtMessage.getMsg());
@@ -69,7 +74,7 @@ class DynamoMessageManager extends AsyncTask<ServerSocket, String, Void> {
                             }
                             case FETCH_REPLICA: {
                                 String key = dhtMessage.getMsg();
-                                out.println(MyUtils.readFile(dynamo.readReplica(key)));
+                                out.println(dynamo.readReplica(key));
                                 break;
                             }
                             case DELETE_REPLICA: {
@@ -92,5 +97,16 @@ class DynamoMessageManager extends AsyncTask<ServerSocket, String, Void> {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private String hashMapToString(HashMap<String, String> map) {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, String> e : map.entrySet()) {
+            e.getKey();
+            sb.append(",");
+            e.getValue();
+            sb.append("|");
+        }
+        return sb.toString();
     }
 }

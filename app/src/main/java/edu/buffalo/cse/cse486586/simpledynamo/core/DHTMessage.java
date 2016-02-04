@@ -1,8 +1,10 @@
-package edu.buffalo.cse.cse486586.simpledynamo;
+package edu.buffalo.cse.cse486586.simpledynamo.core;
 
 import java.io.Serializable;
 
 /**
+ * Basic data structure used to pass messages between different dynamo nodes
+ *
  * Created by utsav on 4/1/15.
  */
 public class DHTMessage implements Serializable {
@@ -12,10 +14,9 @@ public class DHTMessage implements Serializable {
         REPLICATE, DELETE_REPLICA, FAILED_INSERT, DELETE_FAILED_REPLICA, JOIN, FETCH_REPLICA
     }
 
-    public DHTMessage(String msg, MsgType msgType, String from_port) {
+    public DHTMessage(String msg, MsgType msgType) {
         this.msg = msg;
         this.msgType = msgType;
-        this.fromPort = from_port;
     }
 
     public String getMsg() {
@@ -26,17 +27,11 @@ public class DHTMessage implements Serializable {
         return msgType;
     }
 
-    public String getFromPort() {
-        return fromPort;
-    }
-
     private String msg;
     private MsgType msgType;
-    private String fromPort;
 
     @Override
     public String toString() {
-        return ("msgtype:") + (msgType.toString()) + ("\n") +
-                ("from port:") + (fromPort) + ("\n") + ("msg:" + msg + "\n");
+        return ("msgtype:") + (msgType.toString()) + ("\n") + ("msg:" + msg + "\n");
     }
 }
